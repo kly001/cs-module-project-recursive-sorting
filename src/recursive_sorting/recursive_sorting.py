@@ -23,7 +23,7 @@ def merge(arrA, arrB):
     return merged_arr
     #####################################################################
 
-    #  My Code:
+    #  My First attempt:
     #  Resource: https://www.geeksforgeeks.org/merge-two-sorted-arrays/
 
     # def merge(arrA, arrB):
@@ -76,7 +76,7 @@ def merge_in_place(arr, start, mid, end):
     start2 = mid + 1
 
     if(arr[mid] <= arr[start2]):
-        return
+        return arr
     
     while (start <= mid and start2 < end):
         if arr[start] <= arr[start2]:
@@ -87,7 +87,7 @@ def merge_in_place(arr, start, mid, end):
 
              while (index != start):
                  arr[index] = arr[index-1]
-                 index-+1
+                 index-=1
              arr[start] = value
 
              start+=1
@@ -99,8 +99,8 @@ def merge_in_place(arr, start, mid, end):
 
 def merge_sort_in_place(arr, l, r):
     # Your code here
-    if(l<r):
-        m=l + (r + l)//2
+    if(l < r):
+        m = (r + l)//2
 
         merge_sort_in_place(arr, l, m)
         merge_sort_in_place(arr, m+1, r)
@@ -111,6 +111,79 @@ def merge_sort_in_place(arr, l, r):
 
  # Resource: https://www.geeksforgeeks.org/in-place-merge-sort/
 
+#  # Python program in-place Merge Sort 
+  
+# # Merges two subarrays of arr. 
+# # First subarray is arr[l..m] 
+# # Second subarray is arr[m+1..r] 
+# # Inplace Implementation 
+# def merge(arr, start, mid, end): 
+#     start2 = mid + 1; 
+  
+#     # If the direct merge is already sorted 
+#     if (arr[mid] <= arr[start2]): 
+#         return; 
+      
+#     # Two pointers to maintain start 
+#     # of both arrays to merge 
+#     while (start <= mid and start2 <= end): 
+  
+#         # If element 1 is in right place 
+#         if (arr[start] <= arr[start2]): 
+#             start += 1; 
+#         else: 
+#             value = arr[start2]; 
+#             index = start2; 
+  
+#             # Shift all the elements between element 1 
+#             # element 2, right by 1. 
+#             while (index != start): 
+#                 arr[index] = arr[index - 1]; 
+#                 index -= 1; 
+              
+#             arr[start] = value; 
+  
+#             # Update all the pointers 
+#             start += 1; 
+#             mid += 1; 
+#             start2 += 1; 
+          
+# ''' 
+# * l is for left index and r is right index of 
+# the sub-array of arr to be sorted 
+# '''
+# def mergeSort(arr, l, r): 
+#     if (l < r): 
+  
+#         # Same as (l + r) / 2, but avoids overflow 
+#         # for large l and r 
+#         m = l + (r - l) // 2; 
+  
+#         # Sort first and second halves 
+#         mergeSort(arr, l, m); 
+#         mergeSort(arr, m + 1, r); 
+  
+#         merge(arr, l, m, r); 
+      
+# ''' UTILITY FUNCTIONS '''
+# ''' Function to pran array '''
+# def printArray(A, size): 
+  
+#     for i in range(size): 
+#         print(A[i], end=" "); 
+#     print(); 
+  
+# ''' Driver program to test above functions '''
+# if __name__ == '__main__': 
+#     arr = [ 12, 11, 13, 5, 6, 7 ]; 
+#     arr_size = len(arr); 
+  
+#     mergeSort(arr, 0, arr_size - 1); 
+#     printArray(arr, arr_size); 
+      
+# # This code is contributed by 29AjayKumar 
+
+
 ###############################################################################
 
 
@@ -119,7 +192,7 @@ def merge_sort_in_place(arr, l, r):
 
 # STRETCH: implement the Timsort function below
 # hint: check out https://github.com/python/cpython/blob/master/Objects/listsort.txt
-def timsort(arr):
-    # Your code here
-
-    return arr
+# def timsort(arr):
+#     # Your code here
+    
+#     return arr
